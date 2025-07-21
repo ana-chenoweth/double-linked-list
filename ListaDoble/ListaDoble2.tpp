@@ -217,3 +217,32 @@ T& ListaDoble2<T>::operator[](int pos)
 
     return actual->valor;
 }
+//***********************************************************************************************
+template <typename T>
+const T& ListaDoble2<T>::operator[](int pos) const
+{
+    if (pos < 0 || pos >= tam)
+        throw  FueraRango();
+
+    Elemento* actual = primero;
+    for (int i = 0; i < pos; ++i)
+        actual = actual->siguiente;
+
+    return actual->valor;
+}
+//*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::Intercambiar(ListaDoble2<T> &lista) {
+    Elemento* tempPrimero = primero;
+    primero = lista.primero;
+    lista.primero = tempPrimero;
+
+    Elemento* tempUltimo = ultimo;
+    ultimo = lista.ultimo;
+    lista.ultimo = tempUltimo;
+
+    int tempTam = tam;
+    tam = lista.tam;
+    lista.tam = tempTam;
+}
+//*********************************************************************************************

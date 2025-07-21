@@ -30,6 +30,7 @@ public:
     void ImprimirReversa() const;
     T& operator[](int pos);
     const T& operator[](int pos) const;
+      void Intercambiar(ListaDoble2<T> &lista);
   class ListaVacia : public std::exception
   {
   public:
