@@ -106,3 +106,16 @@ void  ListaDoble2<T>::EliminarPos(int pos)
         --tam;
     }
 }
+//*********************************************************************************************
+template <typename T>
+bool ListaDoble2<T>::BuscarValor(T valor) const
+{
+    Elemento *actual = primero;
+    while(actual != nullptr){
+        if(actual->valor == valor){
+            return true;
+        }
+        actual = actual->siguiente;
+    }
+    return false;
+}
