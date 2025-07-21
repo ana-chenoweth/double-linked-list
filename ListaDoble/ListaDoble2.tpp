@@ -438,3 +438,35 @@ void ListaDoble2<T>::EliminarConCondicion(bool (*condicion)(T)) {
         }
     }
 }
+//****************************************************************************************************************
+template <typename T>
+void ListaDoble2<T>::OrdenarAscendente()
+{
+    if (tam <= 1) return;  // No es necesario ordenar si la lista tiene 0 o 1 elemento
+
+    bool intercambio = true;
+    while (intercambio) {
+        intercambio = false;
+        Elemento* actual = primero;
+        while (actual->siguiente != nullptr) {
+            if (actual->valor > actual->siguiente->valor) {
+                // Intercambiamos los valores de los elementos
+                T temp = actual->valor;
+                actual->valor = actual->siguiente->valor;
+                actual->siguiente->valor = temp;
+                intercambio = true;
+            }
+            actual = actual->siguiente;
+        }
+    }
+}
+//****************************************************************************************************************
+template <typename T>
+const char *ListaDoble2<T>::ListaVacia::what() const throw() {
+  return "Lista vac\241a";
+}
+//****************************************************************************************************************
+template <typename T>
+const char *ListaDoble2<T>::FueraRango::what() const throw() {
+  return "Fuera de rango";
+}

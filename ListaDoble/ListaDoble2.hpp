@@ -37,6 +37,7 @@ public:
     void EliminarRepetidos();
     void EliminarTodasOcurrencias(T valor);
     void EliminarConCondicion(bool (*condicion)(T));
+    void OrdenarAscendente();
 
   class ListaVacia : public std::exception
   {
