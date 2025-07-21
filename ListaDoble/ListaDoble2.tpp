@@ -327,3 +327,39 @@ void ListaDoble2<T>::TransferirDesde(ListaDoble2<T>& l, int posInicio) {
     l.ultimo = nullptr;
     l.tam = 0;
 }
+//****************************************************************************************
+template <typename T>
+void ListaDoble2<T>::EliminarRepetidos() {
+    if (tam <= 1) return;
+    Elemento* actual = primero;
+
+    while (actual != nullptr) {
+        T valorActual = actual->valor;
+
+        Elemento* siguiente = actual->siguiente;
+        while (siguiente != nullptr) {
+            if (siguiente->valor == valorActual) {
+                Elemento* porEliminar = siguiente;
+                siguiente = siguiente->siguiente;
+
+                if (porEliminar->anterior != nullptr) {
+                    porEliminar->anterior->siguiente = porEliminar->siguiente;
+                }
+                if (porEliminar->siguiente != nullptr) {
+                    porEliminar->siguiente->anterior = porEliminar->anterior;
+                }
+
+                if (porEliminar == ultimo) {
+                    ultimo = porEliminar->anterior;
+                }
+
+                delete porEliminar;
+                --tam;
+            } else {
+                siguiente = siguiente->siguiente;
+            }
+        }
+
+        actual = actual->siguiente;
+    }
+}

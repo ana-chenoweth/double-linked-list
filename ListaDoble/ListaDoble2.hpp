@@ -34,6 +34,7 @@ public:
     void TransferirRango(ListaDoble2<T>& otraLista, int posInicio, int posFin);
     void TransferirTodos(ListaDoble2<T>& otraLista);
     void TransferirDesde(ListaDoble2<T>& otraLista, int posInicio);
+    void EliminarRepetidos();
 
   class ListaVacia : public std::exception
   {
