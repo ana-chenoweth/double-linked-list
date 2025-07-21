@@ -3,6 +3,7 @@
 #define LISTADOBLE2_HPP_INCLUDED
 
 #include <iostream>
+#define NO_ENCONTRADO -1
 
 template <typename T>
 class ListaDoble2 {
@@ -27,6 +28,16 @@ public:
     void Vaciar();
     void Imprimir() const;
     void ImprimirReversa() const;
+  class ListaVacia : public std::exception
+  {
+  public:
+    virtual const char *what() const throw();
+  };
+  class FueraRango : public std::exception
+  {
+  public:
+    virtual const char *what() const throw();
+  };
 private:
     int tam, pos;
     struct Elemento
