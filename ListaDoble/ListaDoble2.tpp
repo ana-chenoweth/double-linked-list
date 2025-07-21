@@ -7,6 +7,22 @@ ListaDoble2<T>::ListaDoble2(): tam(0), primero(nullptr), ultimo(nullptr)
 }
 //****************************************************************************************
 template <typename T>
+ListaDoble2<T>& ListaDoble2<T>::operator=(const ListaDoble2& l) {
+    if (this == &l)
+        return *this;
+
+    Vaciar();
+
+    Elemento* actual = l.primero;
+    while (actual != nullptr) {
+        AgregarFinal(actual->valor);
+        actual = actual->siguiente;
+    }
+
+    return *this;
+}
+//****************************************************************************************
+template <typename T>
 ListaDoble2<T>::~ListaDoble2()
 {
     Vaciar();

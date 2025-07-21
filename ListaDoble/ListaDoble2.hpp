@@ -10,6 +10,7 @@ class ListaDoble2 {
 public:
     ListaDoble2();
     ~ListaDoble2();
+    ListaDoble2<T> & operator=(const ListaDoble2 &l);
     ListaDoble2(const ListaDoble2<T> &l);
     void AgregarInicio(T valor);
     void AgregarFinal(T valor);
