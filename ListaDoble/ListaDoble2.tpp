@@ -148,3 +148,13 @@ T ListaDoble2<T>::ObtenerUltimo() const
 {
     return ultimo->valor;
 }
+//*********************************************************************************************
+template <typename T>
+T ListaDoble2<T>::ObtenerPorPos(int pos) const
+{
+    Elemento *actual = primero;
+    for(int i = 0; actual!= nullptr && i<pos; ++i)
+        actual = actual->siguiente;
+    if(actual!= nullptr) return actual->valor;
+    else throw "No se encuentra ese valor";
+}
