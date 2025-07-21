@@ -45,3 +45,23 @@ void ListaDoble2<T>::AgregarFinal(T valor) {
     ultimo = nuevo;
     ++tam;
 }
+//****************************************************************************************
+template <typename T>
+void ListaDoble2<T>::AgregarPos(T valor, int pos) {
+    if (pos < 0 || pos > tam) throw FueraRango();
+
+    if (pos == 0)
+        AgregarInicio(valor);
+    else if (pos == tam)
+        AgregarFinal(valor);
+    else {
+        Elemento *ant = primero;
+        for (int i = 1; i < pos; ++i) ant = ant->siguiente;
+        Elemento *nuevo = new Elemento(valor, ant->siguiente, ant);
+
+        ant->siguiente = nuevo;
+        nuevo->siguiente->anterior = nuevo;
+
+        ++tam;
+    }
+}
