@@ -136,3 +136,15 @@ bool ListaDoble2<T>::EstaVacia() const
 {
     return tam==0;
 }
+//*********************************************************************************************
+template <typename T>
+T ListaDoble2<T>::ObtenerPrimero() const
+{
+    return primero->valor;
+}
+//*********************************************************************************************
+template <typename T>
+T ListaDoble2<T>::ObtenerUltimo() const
+{
+    return ultimo->valor;
+}

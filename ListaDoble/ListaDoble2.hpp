@@ -19,6 +19,8 @@ public:
     bool BuscarValor(T valor) const;
     int BuscarPos(T valor) const;
     bool EstaVacia() const;
+    T ObtenerPrimero() const;
+    T ObtenerUltimo() const;
 private:
     int tam, pos;
     struct Elemento
