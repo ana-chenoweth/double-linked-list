@@ -8,6 +8,7 @@ template <typename T>
 class ListaDoble2 {
 public:
     ListaDoble2();
+    ListaDoble2(const ListaDoble2<T> &l);
 private:
     int tam, pos;
     struct Elemento
