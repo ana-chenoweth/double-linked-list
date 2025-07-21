@@ -10,6 +10,8 @@ public:
     ListaDoble2();
     ~ListaDoble2();
     ListaDoble2(const ListaDoble2<T> &l);
+    void AgregarInicio(T valor);
+    void AgregarFinal(T valor);
 private:
     int tam, pos;
     struct Elemento
