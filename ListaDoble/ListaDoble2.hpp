@@ -35,6 +35,7 @@ public:
     void TransferirTodos(ListaDoble2<T>& otraLista);
     void TransferirDesde(ListaDoble2<T>& otraLista, int posInicio);
     void EliminarRepetidos();
+    void EliminarTodasOcurrencias(T valor);
 
   class ListaVacia : public std::exception
   {

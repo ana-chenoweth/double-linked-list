@@ -363,3 +363,47 @@ void ListaDoble2<T>::EliminarRepetidos() {
         actual = actual->siguiente;
     }
 }
+//***************************************************************************************************************
+template <typename T>
+void ListaDoble2<T>::EliminarTodasOcurrencias(T valor)
+{
+    Elemento* actual = primero;
+
+    // Buscamos la primera ocurrencia del valor
+    while (actual != nullptr && actual->valor != valor) {
+        actual = actual->siguiente;
+    }
+
+    // Si se encontr� el valor, eliminamos las ocurrencias adicionales
+    if (actual != nullptr) {
+        Elemento* porEliminar = actual->siguiente;
+
+        while (porEliminar != nullptr) {
+            if (porEliminar->valor == valor) {
+                Elemento* temp = porEliminar;
+                porEliminar = porEliminar->siguiente;
+
+                // Actualizamos punteros de los elementos adyacentes
+                if (temp->anterior != nullptr) {
+                    temp->anterior->siguiente = temp->siguiente;
+                }
+                if (temp->siguiente != nullptr) {
+                    temp->siguiente->anterior = temp->anterior;
+                }
+
+                // Actualizamos punteros 'primero' y 'ultimo' si se elimin� el primer o �ltimo elemento
+                if (temp == primero) {
+                    primero = temp->siguiente;
+                }
+                if (temp == ultimo) {
+                    ultimo = temp->anterior;
+                }
+
+                delete temp;
+                --tam;
+            } else {
+                porEliminar = porEliminar->siguiente;
+            }
+        }
+    }
+}
