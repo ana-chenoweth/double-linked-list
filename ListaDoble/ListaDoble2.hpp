@@ -28,6 +28,8 @@ public:
     void Vaciar();
     void Imprimir() const;
     void ImprimirReversa() const;
+    T& operator[](int pos);
+    const T& operator[](int pos) const;
   class ListaVacia : public std::exception
   {
   public:

@@ -204,3 +204,16 @@ void ListaDoble2<T>::ImprimirReversa() const
         actual = actual->anterior;
     }
 }
+//***********************************************************************************************
+template <typename T>
+T& ListaDoble2<T>::operator[](int pos)
+{
+    if (pos < 0 || pos >= tam)
+        throw  FueraRango();
+
+    Elemento* actual = primero;
+    for (int i = 0; i < pos; ++i)
+        actual = actual->siguiente;
+
+    return actual->valor;
+}
