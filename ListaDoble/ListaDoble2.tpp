@@ -89,3 +89,20 @@ void  ListaDoble2<T>::EliminarFinal()
     --tam;
     if(EstaVacia()) primero = nullptr;
 }
+//************************************************************************************
+template <typename T>
+void  ListaDoble2<T>::EliminarPos(int pos)
+{
+    if(EstaVacia()) throw  ListaVacia();
+    if(pos<0 || pos >= tam) throw  FueraRango();
+    if(pos==0) EliminarInicio();
+    else if(pos==tam-1) EliminarFinal();
+    else{
+        Elemento *porBorrar = primero;
+        for(int i = 1; i<pos; ++i) porBorrar = porBorrar->siguiente;
+        porBorrar->anterior->siguiente = porBorrar->siguiente;
+        porBorrar->siguiente->anterior = porBorrar->anterior;
+        delete porBorrar;
+        --tam;
+    }
+}
