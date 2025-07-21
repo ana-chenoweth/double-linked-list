@@ -301,3 +301,29 @@ void ListaDoble2<T>::TransferirTodos(ListaDoble2<T>& l) {
     l.ultimo = nullptr;
     l.tam = 0;
 }
+//*********************************************************************************************************
+template <typename T>
+void ListaDoble2<T>::TransferirDesde(ListaDoble2<T>& l, int posInicio) {
+    if (posInicio < 0) {
+        throw FueraRango();
+    }
+
+    Elemento* inicio = l.primero;
+    for (int i = 0; i < posInicio; ++i) {
+        if (inicio == nullptr) {
+            throw FueraRango();
+        }
+        inicio = inicio->siguiente;
+    }
+
+    Elemento* actual = inicio;
+    while (actual != nullptr) {
+        AgregarFinal(actual->valor);
+        Elemento* temp = actual;
+        actual = actual->siguiente;
+        delete temp; // Eliminamos el elemento transferido de la lista original
+    }
+    l.primero = nullptr; // La lista original queda vac�a
+    l.ultimo = nullptr;
+    l.tam = 0;
+}
