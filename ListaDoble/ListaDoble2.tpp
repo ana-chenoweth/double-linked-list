@@ -246,3 +246,44 @@ void ListaDoble2<T>::Intercambiar(ListaDoble2<T> &lista) {
     lista.tam = tempTam;
 }
 //*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::TransferirRango(ListaDoble2<T>& l, int posInicio, int posFin)
+{
+    if (posInicio < 0 || posFin >= l.NumElementos() || posInicio > posFin) {
+        throw FueraRango();
+    }
+
+    // Encuontramos el inicio del rango en la lista original
+    Elemento* inicio = l.primero;
+    for (int i = 0; i < posInicio; ++i) {
+        inicio = inicio->siguiente;
+    }
+
+    // Encuontramos el fin del rango en la lista original
+    Elemento* fin = inicio;
+    for (int i = posInicio; i < posFin; ++i) {
+        fin = fin->siguiente;
+    }
+
+    // Transferimos los elementos del rango a esta lista
+    for (Elemento* actual = inicio; actual != fin->siguiente; actual = actual->siguiente) {
+        AgregarFinal(actual->valor);
+    }
+
+    // Actualizamos los punteros de la lista original si se transfieren todos los elementos
+    if (posInicio == 0) {
+        l.primero = fin->siguiente;
+    }
+    if (posFin == l.NumElementos() - 1) {
+        l.ultimo = inicio->anterior;
+    }
+
+    // Eliminamos los elementos transferidos de la lista original
+    inicio->anterior->siguiente = fin->siguiente;
+    fin->siguiente->anterior = inicio->anterior;
+    for (Elemento* actual = inicio; actual != fin->siguiente;) {
+        Elemento* temp = actual;
+        actual = actual->siguiente;
+        delete temp;
+    }
+}
