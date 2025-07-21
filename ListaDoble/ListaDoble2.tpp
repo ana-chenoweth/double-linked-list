@@ -130,3 +130,9 @@ int ListaDoble2<T>::BuscarPos(T valor) const
     if(actual!= nullptr) return pos;
     else NO_ENCONTRADO;
 }
+//*********************************************************************************************
+template <typename T>
+bool ListaDoble2<T>::EstaVacia() const
+{
+    return tam==0;
+}

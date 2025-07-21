@@ -18,6 +18,7 @@ public:
     void EliminarPos(int pos);
     bool BuscarValor(T valor) const;
     int BuscarPos(T valor) const;
+    bool EstaVacia() const;
 private:
     int tam, pos;
     struct Elemento
