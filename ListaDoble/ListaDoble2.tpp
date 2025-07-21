@@ -176,3 +176,11 @@ int ListaDoble2<T>::NumElementos() const
 {
     return tam;
 }
+//*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::Vaciar()
+{
+    while(!EstaVacia()){
+        EliminarFinal();
+    }
+}
