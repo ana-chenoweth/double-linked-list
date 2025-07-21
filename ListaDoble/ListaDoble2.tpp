@@ -158,3 +158,21 @@ T ListaDoble2<T>::ObtenerPorPos(int pos) const
     if(actual!= nullptr) return actual->valor;
     else throw "No se encuentra ese valor";
 }
+//*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::ModificarPos(T valor, int pos)
+{
+    if(EstaVacia()) throw ListaVacia();
+    if(pos<0 || pos >= tam) throw FueraRango();
+    Elemento *actual = primero;
+    for(int i = 0; actual!= nullptr && i<pos; ++i)
+        actual = actual->siguiente;
+    if(actual!= nullptr) actual->valor = valor;
+    else throw "Ocurrio un error al encontrar la posicion";
+}
+//*********************************************************************************************
+template <typename T>
+int ListaDoble2<T>::NumElementos() const
+{
+    return tam;
+}
