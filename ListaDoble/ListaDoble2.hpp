@@ -1,0 +1,24 @@
+
+#ifndef LISTADOBLE2_HPP_INCLUDED
+#define LISTADOBLE2_HPP_INCLUDED
+
+#include <iostream>
+
+template <typename T>
+class ListaDoble2 {
+public:
+    ListaDoble2();
+private:
+    int tam, pos;
+    struct Elemento
+    {
+        T valor;
+        Elemento *siguiente, *anterior;
+        Elemento(T val, Elemento *sig, Elemento *ant) : valor(val), siguiente(sig), anterior(ant) {}
+    };
+    Elemento *primero, *ultimo;
+};
+
+#include "ListaDoble2.tpp"
+#endif // LISTADOBLE2_HPP_INCLUDED
+
