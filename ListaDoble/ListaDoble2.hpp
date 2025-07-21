@@ -36,6 +36,7 @@ public:
     void TransferirDesde(ListaDoble2<T>& otraLista, int posInicio);
     void EliminarRepetidos();
     void EliminarTodasOcurrencias(T valor);
+    void EliminarConCondicion(bool (*condicion)(T));
 
   class ListaVacia : public std::exception
   {

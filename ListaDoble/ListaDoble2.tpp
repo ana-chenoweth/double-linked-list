@@ -407,3 +407,34 @@ void ListaDoble2<T>::EliminarTodasOcurrencias(T valor)
         }
     }
 }
+//***************************************************************************************************************
+template <typename T>
+void ListaDoble2<T>::EliminarConCondicion(bool (*condicion)(T)) {
+    Elemento* actual = primero;
+
+    while (actual != nullptr) {
+        Elemento* porEliminar = actual;
+        actual = actual->siguiente;
+
+        if (condicion(porEliminar->valor)) {
+            // Actualizar punteros de los elementos adyacentes
+            if (porEliminar->anterior != nullptr) {
+                porEliminar->anterior->siguiente = porEliminar->siguiente;
+            }
+            if (porEliminar->siguiente != nullptr) {
+                porEliminar->siguiente->anterior = porEliminar->anterior;
+            }
+
+            // Actualizar punteros 'primero' y 'ultimo' si se elimin� el primer o �ltimo elemento
+            if (porEliminar == primero) {
+                primero = porEliminar->siguiente;
+            }
+            if (porEliminar == ultimo) {
+                ultimo = porEliminar->anterior;
+            }
+
+            delete porEliminar;
+            --tam;
+        }
+    }
+}
