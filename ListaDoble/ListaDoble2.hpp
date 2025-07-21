@@ -25,6 +25,8 @@ public:
     void ModificarPos(T valor, int pos);
     int NumElementos() const;
     void Vaciar();
+    void Imprimir() const;
+    void ImprimirReversa() const;
 private:
     int tam, pos;
     struct Elemento

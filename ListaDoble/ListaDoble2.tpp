@@ -184,3 +184,23 @@ void ListaDoble2<T>::Vaciar()
         EliminarFinal();
     }
 }
+//*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::Imprimir() const
+{
+    Elemento *actual = primero;
+    while(actual != nullptr){
+        std::cout << actual->valor << ", ";
+        actual = actual->siguiente;
+    }
+}
+//*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::ImprimirReversa() const
+{
+    Elemento *actual = ultimo;
+    while(actual != nullptr){
+        std::cout << actual->valor << ", ";
+        actual = actual->anterior;
+    }
+}
