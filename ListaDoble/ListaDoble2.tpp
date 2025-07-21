@@ -119,3 +119,14 @@ bool ListaDoble2<T>::BuscarValor(T valor) const
     }
     return false;
 }
+//*********************************************************************************************
+template <typename T>
+int ListaDoble2<T>::BuscarPos(T valor) const
+{
+    Elemento *actual = primero;
+    int pos;
+    for(pos = 0; actual!= nullptr && actual->valor != valor; ++pos)
+        actual = actual->siguiente;
+    if(actual!= nullptr) return pos;
+    else NO_ENCONTRADO;
+}
