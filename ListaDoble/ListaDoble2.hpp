@@ -13,6 +13,8 @@ public:
     void AgregarInicio(T valor);
     void AgregarFinal(T valor);
     void AgregarPos(T valor, int pos);
+    void EliminarInicio();
+    void EliminarFinal();
 private:
     int tam, pos;
     struct Elemento

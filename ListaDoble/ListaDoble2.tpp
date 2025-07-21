@@ -65,3 +65,27 @@ void ListaDoble2<T>::AgregarPos(T valor, int pos) {
         ++tam;
     }
 }
+//************************************************************************************
+template <typename T>
+void  ListaDoble2<T>::EliminarInicio()
+{
+    if(EstaVacia()) throw ListaVacia();
+    Elemento *porBorrar = primero;
+    primero = primero->siguiente;
+    primero->siguiente->anterior = nullptr;
+    delete porBorrar;
+    --tam;
+    if(EstaVacia()) ultimo = nullptr;
+}
+//************************************************************************************
+template <typename T>
+void  ListaDoble2<T>::EliminarFinal()
+{
+    if(EstaVacia()) throw ListaVacia();
+    Elemento *porBorrar = ultimo;
+    ultimo->anterior->siguiente = nullptr;
+    ultimo = ultimo->anterior;
+    delete porBorrar;
+    --tam;
+    if(EstaVacia()) primero = nullptr;
+}
