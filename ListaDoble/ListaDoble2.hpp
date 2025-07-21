@@ -32,7 +32,8 @@ public:
     const T& operator[](int pos) const;
     void Intercambiar(ListaDoble2<T> &lista);
     void TransferirRango(ListaDoble2<T>& otraLista, int posInicio, int posFin);
-    
+    void TransferirTodos(ListaDoble2<T>& otraLista);
+
   class ListaVacia : public std::exception
   {
   public:

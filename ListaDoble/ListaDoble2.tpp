@@ -287,3 +287,17 @@ void ListaDoble2<T>::TransferirRango(ListaDoble2<T>& l, int posInicio, int posFi
         delete temp;
     }
 }
+//*********************************************************************************************
+template <typename T>
+void ListaDoble2<T>::TransferirTodos(ListaDoble2<T>& l) {
+    Elemento* actual = l.primero;
+    while (actual != nullptr) {
+        AgregarFinal(actual->valor);
+        Elemento* temp = actual;
+        actual = actual->siguiente;
+        delete temp; // Eliminamos el elemento transferido de la lista original
+    }
+    l.primero = nullptr; // La lista original queda vac�a
+    l.ultimo = nullptr;
+    l.tam = 0;
+}
