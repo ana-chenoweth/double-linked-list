@@ -3,7 +3,7 @@
 This repository contains an academic implementation of a **Double Linked List** in C++ using templates. It was developed as part of a learning project to explore data structures in depth and to understand memory management, traversal operations, and exception handling.
 
 ---
-<img src="img/double-linked-list.png" alt="Double-linked-list" width="600"/>
+<img src="img/double-linked-list.png" alt="Double-linked-list" width="800"/>
 
 
 ## Description
@@ -35,7 +35,7 @@ The main class, `ListaDoble2<T>`, is a generic (templated) double-linked list im
 
 ## Example Use 
 
-<img src="img/program.png" alt="Example usage" width="600"/>
+<img src="img/program.png" alt="Example usage" width="800"/>
 
 
 ---
